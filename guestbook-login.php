@@ -1,8 +1,24 @@
 <?php
+  require('config/config.php');
+	require('config/db.php');
   
+  if(isset($_POST['submit']))
+	{
+		$un= $_POST['username'];
+		$pw= $_POST['password'];
+		$result= $conn->query("SELECT * FROM account WHERE username='$un' AND password='$pw'") or die('Cannot login:'.mysqli_error()); 
 
+		$row= $result ->Fetch_array();
+		$nr= $result->num_rows;
+		if($nr> 0)
+		{
+			session_start();
+			$_SESSION['aid']= $row['id'];
+			header("location: guestbook-list.php");	
+		}else
+		{ $errMSG="Invalid Username or Password! <br> Please try again!";}
 
-
+	}
 ?>
 <?php include('inc/header.php'); ?>
   <br/>

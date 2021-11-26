@@ -1,6 +1,6 @@
 <?php
-	define('ROOT_URL', '');
-	define('DB_HOST', '');
-	define('DB_USER', '');
+	define('ROOT_URL', 'http://localhost/logApp-scaling-octo/');
+	define('DB_HOST', 'localhost');
+	define('DB_USER', 'root');
 	define('DB_PASS', '');
-	define('DB_NAME', '');
+	define('DB_NAME', 'mydb');
